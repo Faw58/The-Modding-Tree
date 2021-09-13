@@ -1,8 +1,8 @@
 let modInfo = {
 	name: "The Large Number Tree",
 	id: "MainSave",
-	author: "nobody",
-	pointsName: "points",
+	author: "Fawwaz",
+	pointsName: "numbers",
 	modFiles: ["layers.js", "tree.js"],
 
 	discordName: "",

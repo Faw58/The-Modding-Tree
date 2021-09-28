@@ -52,5 +52,14 @@ addLayer("p", {
                 },        
                     effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }, // Add formatting to the effect
                 }
+                    , 14: {
+                        title: "Scale Upgrade",
+                        description: "Boosts Scaler effecttt based on your number",
+                        cost: new Decimal(20),
+                        effect() {
+                            return player.points.add(1).pow(0.1)
+                        },
+                        effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }, // Add formatting to the effect
+                    }
     }})
 

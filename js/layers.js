@@ -1,4 +1,4 @@
-addLayer("p", {
+addLayer("I", {
     name: "Incrementer", // This is optional, only used in a few places, If absent it just uses the layer id.
     symbol: "I", // This appears on the layer's node. Default is the id with the first letter capitalized
     position: 0, // Horizontal position within a row. By default it uses the layer id and sorts in alphabetical order
@@ -15,7 +15,7 @@ addLayer("p", {
     exponent: 0.5, // Prestige currency exponent
     gainMult() { // Calculate the multiplier for main currency from bonuses
         let  mult = new Decimal(1)
-        if (hasUpgrade('p', 13)) mult = mult.times(upgradeEffect('p', 13))
+        if (hasUpgrade('I', 13)) mult = mult.times(upgradeEffect('p', 13))
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
@@ -32,20 +32,20 @@ addLayer("p", {
             description: "Double your number gain.",
             cost: new Decimal(1),
         
-        }
+        },
         
-           , 12: {
+            12: {
                 title: "Scaler",
                 description: "Multiply your number gain based on your incrementer.",
                 cost: new Decimal(2),
                 effect() {
                    let mult = new Decimal(1)
-                   if (hasUpgrade('p', 14)) mult = mult.times(upgradeEffect('p', 14))
+                   if (hasUpgrade('I', 14)) mult = mult.times(upgradeEffect('I', 14))
                     return player[this.layer].points.add(1).pow(0.5)
                 },
                 effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }, // Add formatting to the effect
-            }
-               , 13: {
+            },
+                13: {
                     title: "Extra Incrementer",
                     description: "Multiply your increment gain based on numbers.",
                     cost: new Decimal(5),
@@ -53,8 +53,8 @@ addLayer("p", {
                     return player.points.add(1).pow(0.15)
                 },        
                     effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }, // Add formatting to the effect
-                }
-                    , 14: {
+                },
+                     14: {
                         title: "Scale Upgrade",
                         description: "Boosts Scaler effecttt based on your number",
                         cost: new Decimal(20),

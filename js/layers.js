@@ -39,7 +39,7 @@ addLayer("p", {
                 description: "Multiply your number gain based on your incrementer.",
                 cost: new Decimal(2),
                 effect() {
-                   let mult = new decimal(1)
+                   let mult = new Decimal(1)
                    if (hasUpgrade('p', 14)) mult = mult.times(upgradeEffect('p', 14))
                     return player[this.layer].points.add(1).pow(0.5)
                 },
